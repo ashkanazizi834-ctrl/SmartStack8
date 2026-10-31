@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#6557e8">
+<meta name="description" content="فلش‌کارت‌های تعاملی زبان انگلیسی پایه هشتم">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<title>SmartStack 8</title>
+<style>
+:root{--bg:#f5f4ff;--card:#fff;--ink:#24213a;--muted:#77738e;--purple:#6557e8;--purple2:#eeeaff;--green:#16865b;--orange:#c77a18;--line:#e8e5f4;--shadow:0 12px 32px #33266b12}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,"Segoe UI",sans-serif;min-height:100vh}
+button,select{font:inherit}button{cursor:pointer;border:0}
+.wrap{max-width:760px;margin:auto;padding:18px 16px 40px}
+.hero{background:linear-gradient(125deg,#5548d8,#9a62ed);color:#fff;border-radius:24px;padding:22px;box-shadow:var(--shadow)}
+.brand{display:flex;align-items:center;justify-content:space-between}.brand h1{font-size:26px;margin:5px 0}.brand p{margin:0;font-size:13px;opacity:.9}.logo{font-size:42px}
+.section-title{font-weight:800;margin:22px 2px 11px}
+.lessons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.lesson{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px;text-align:right;box-shadow:0 3px 12px #33266b08;min-height:88px;color:var(--ink)}
+.lesson.active{border:2px solid var(--purple);background:var(--purple2);padding:12px}
+.lesson small{color:var(--muted);display:block;margin-bottom:6px}.lesson strong{font-size:15px}.lesson em{display:block;color:var(--muted);font-size:11px;font-style:normal;margin-top:5px;direction:ltr;text-align:right}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;margin-top:16px;box-shadow:var(--shadow)}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+select{background:#f7f6ff;border:1px solid var(--line);border-radius:12px;padding:10px;color:var(--ink)}
+.muted{color:var(--muted);font-size:13px}.progress{height:8px;border-radius:20px;background:#eeecf6;overflow:hidden;margin:12px 0 16px}.bar{height:100%;width:0;background:linear-gradient(90deg,#6557e8,#b36aef);transition:width .2s}
+.flash{min-height:245px;border:1px solid var(--line);border-radius:19px;background:linear-gradient(160deg,#fff,#faf9ff);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}
+.pill{background:var(--purple2);color:var(--purple);border-radius:30px;padding:6px 12px;font-size:12px;font-weight:bold}
+.front{font-size:clamp(23px,6vw,32px);font-weight:800;direction:ltr;margin:20px 0 12px;line-height:1.5}
+.answer{border-top:1px solid var(--line);width:100%;padding-top:15px;margin-top:8px;font-size:19px;font-weight:bold;line-height:1.8}
+.note{color:var(--muted);font-size:13px;line-height:1.8}
+.btn{border-radius:13px;padding:13px 12px;font-weight:bold;min-height:48px}
+.primary{background:var(--purple);color:#fff;width:100%;margin-top:12px}
+.green{background:var(--green);color:white}.orange{background:var(--orange);color:white}.soft{background:#f1effb;color:#4e467b;border:1px solid var(--line)}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px}
+.nav{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:9px}
+.stats{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:13px;margin-top:15px;color:var(--muted)}
+.hidden{display:none!important}.footer{text-align:center;color:var(--muted);font-size:11px;margin:18px 0 0;line-height:1.8}
+button:disabled{opacity:.45;cursor:not-allowed}
+@media(min-width:560px){.lessons{grid-template-columns:repeat(4,minmax(0,1fr))}.wrap{padding-top:28px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="hero">
+ <div class="brand"><div><p>فلش‌کارت‌های زبان انگلیسی پایه هشتم</p><h1>SmartStack 8</h1><p>یاد بگیر، مرور کن، پیشرفتت را ببین ✨</p></div><div class="logo">📚</div></div>
+</header>
+<h2 class="section-title">انتخاب درس</h2>
+<section id="lessons" class="lessons" aria-label="درس‌ها"></section>
+<section class="panel">
+ <div class="topline"><div><strong id="lessonName">درس اول</strong><div class="muted" id="lessonEnglish"></div></div>
+ <select id="filter" aria-label="نوع کارت"><option value="all">همه کارت‌ها</option><option value="vocab">واژگان</option><option value="talk">مکالمه</option></select></div>
+ <div class="topline muted" style="margin-top:15px"><span id="position">کارت ۱ از ۵</span><span id="score">بلدم: ۰ · مرور: ۰</span></div>
+ <div class="progress"><div id="bar" class="bar"></div></div>
+ <article class="flash">
+  <span id="type" class="pill">واژگان</span>
+  <div id="front" class="front">country</div>
+  <div id="answerArea" class="hidden answer"><div id="answer"></div><div id="note" class="note"></div></div>
+ </article>
+ <button id="reveal" class="btn primary">نمایش پاسخ 👀</button>
+ <div class="actions"><button id="again" class="btn orange" disabled>↻ نیاز به تمرین</button><button id="known" class="btn green" disabled>✓ بلدم</button></div>
+ <div class="nav"><button id="prev" class="btn soft">قبلی ←</button><button id="mix" class="btn soft">بر زدن 🔀</button><button id="next" class="btn soft">→ بعدی</button></div>
+ <div class="stats"><span id="stats">هنوز کارتی مرور نشده</span><button id="reset" class="btn soft" style="padding:7px 10px;min-height:0;font-size:12px">شروع دوباره</button></div>
+</section>
+<p class="footer">پیشرفتت روی همین دستگاه ذخیره می‌شود. مکالمه‌ها تمرین‌های کوتاه و ساخته‌شده برای موضوع هر درس هستند، نه متن کامل کتاب.</p>
+</main>
+<script>
+const lessons=[
+{name:"My Nationality",fa:"ملیت من",cards:[
+["vocab","country","کشور","country = کشور"],["vocab","nationality","ملیت","nationality = ملیت"],["vocab","Iranian","ایرانی","Iran = ایران"],
+["talk","Where are you from?","I’m from Iran.","اهل کجا هستی؟ من اهل ایرانم."],["talk","Are you Iranian?","Yes, I am.","آیا ایرانی هستی؟ بله."]
+]},
+{name:"My Week",fa:"هفته‌ی من",cards:[
+["vocab","Monday","دوشنبه","یکی از روزهای هفته"],["vocab","every day","هر روز","عبارت زمانی"],["vocab","weekend","آخر هفته","روزهای پایانی هفته"],
+["talk","What do you do in the mornings?","I go to school.","صبح‌ها چه کار می‌کنی؟ به مدرسه می‌روم."],["talk","When do you study English?","On Monday mornings.","چه زمانی انگلیسی می‌خوانی؟ دوشنبه صبح‌ها."]
+]},
+{name:"My Abilities",fa:"توانایی‌های من",cards:[
+["vocab","draw","نقاشی کشیدن","یک مهارت"],["vocab","ride a bicycle","دوچرخه‌سواری کردن","یک فعالیت"],["vocab","swim","شنا کردن","یک توانایی"],
+["talk","Can you swim?","Yes, I can.","می‌توانی شنا کنی؟ بله."],["talk","Can you draw?","No, I can’t.","می‌توانی نقاشی بکشی؟ نه."]
+]},
+{name:"My Health",fa:"سلامت من",cards:[
+["vocab","headache","سردرد","health = سلامت"],["vocab","toothache","دندان‌درد","ache = درد"],["vocab","stomachache","دل‌درد","یکی از مشکلات سلامتی"],
+["talk","What’s the matter?","I have a headache.","چه شده؟ سردرد دارم."],["talk","What should I do?","You should get some rest.","چه کار کنم؟ بهتر است کمی استراحت کنی."]
+]},
+{name:"My City",fa:"شهر من",cards:[
+["vocab","hospital","بیمارستان","یکی از مکان‌های شهر"],["vocab","library","کتابخانه","مکانی برای کتاب خواندن"],["vocab","museum","موزه","مکانی برای دیدن آثار"],
+["talk","Is there a park near here?","Yes, there is.","آیا این نزدیکی پارک هست؟ بله."],["talk","How can I get to the library?","Go straight and turn left.","چطور به کتابخانه بروم؟ مستقیم برو و به چپ بپیچ."]
+]},
+{name:"My Village",fa:"روستای من",cards:[
+["vocab","village","روستا","مکانی در منطقه‌ی روستایی"],["vocab","farmer","کشاورز","کسی که در مزرعه کار می‌کند"],["vocab","weather","آب‌وهوا","حالت هوا"],
+["talk","What’s the weather like?","It’s sunny.","هوا چطور است؟ آفتابی است."],["talk","Where does your uncle work?","He works on a farm.","عمویت کجا کار می‌کند؟ در مزرعه."]
+]},
+{name:"My Hobbies",fa:"سرگرمی‌های من",cards:[
+["vocab","hobby","سرگرمی","کاری که در اوقات فراغت دوست داریم"],["vocab","play chess","شطرنج بازی کردن","یک سرگرمی"],["vocab","watch TV","تلویزیون تماشا کردن","فعالیت اوقات فراغت"],
+["talk","What’s your hobby?","My hobby is reading.","سرگرمی‌ات چیست؟ سرگرمی من کتاب خواندن است."],["talk","What do you do in your free time?","I play chess.","در اوقات فراغت چه می‌کنی؟ شطرنج بازی می‌کنم."]
+]}
+];
+const $=id=>document.getElementById(id);
+let lesson=0,index=0,revealed=false,marks=JSON.parse(localStorage.getItem("ss8marks")||"{}");
+function getCards(){let c=lessons[lesson].cards;let f=$("filter").value;return c.map((x,i)=>({type:x[0],front:x[1],answer:x[2],note:x[3],id:i})).filter(x=>f==="all"||x.type===f)}
+function lessonMarks(){return Object.entries(marks).filter(([k])=>k.startsWith(lesson+":")).map(x=>x[1])}
+function draw(){
+ $("lessons").innerHTML=lessons.map((l,i)=>`<button class="lesson ${i===lesson?"active":""}" data-i="${i}"><small>درس ${["اول","دوم","سوم","چهارم","پنجم","ششم","هفتم"][i]}</small><strong>${l.fa}</strong><em>${l.name}</em></button>`).join("");
+ document.querySelectorAll(".lesson").forEach(b=>b.onclick=()=>{lesson=+b.dataset.i;index=0;revealed=false;draw()});
+ let c=getCards();index=Math.max(0,Math.min(index,c.length-1));let x=c[index],m=lessonMarks();
+ $("lessonName").textContent="درس "+["اول","دوم","سوم","چهارم","پنجم","ششم","هفتم"][lesson]+" · "+lessons[lesson].fa;
+ $("lessonEnglish").textContent=lessons[lesson].name;$("position").textContent=`کارت ${index+1} از ${c.length}`;
+ $("score").textContent=`بلدم: ${m.filter(x=>x==="known").length} · مرور: ${m.filter(x=>x==="again").length}`;
+ $("bar").style.width=(Object.keys(marks).filter(k=>k.startsWith(lesson+":")).length/lessons[lesson].cards.length*100)+"%";
+ $("type").textContent=x.type==="talk"?"مکالمه 💬":"واژگان 📖";$("front").textContent=x.front;$("answer").textContent=x.answer;$("note").textContent=x.note;
+ $("answerArea").classList.toggle("hidden",!revealed);$("reveal").classList.toggle("hidden",revealed);
+ $("known").disabled=$("again").disabled=!revealed;$("prev").disabled=index===0;$("next").disabled=index===c.length-1;
+ $("stats").textContent=m.length?`${m.length} کارت علامت‌گذاری شده`:"هنوز کارتی مرور نشده";
+}
+function move(n){index=Math.max(0,Math.min(getCards().length-1,index+n));revealed=false;draw()}
+$("filter").onchange=()=>{index=0;revealed=false;draw()};
+$("reveal").onclick=()=>{revealed=true;draw()};
+function mark(value){let x=getCards()[index];marks[lesson+":"+x.id]=value;localStorage.setItem("ss8marks",JSON.stringify(marks));move(1)}
+$("known").onclick=()=>mark("known");$("again").onclick=()=>mark("again");
+$("prev").onclick=()=>move(-1);$("next").onclick=()=>move(1);
+$("mix").onclick=()=>{index=Math.floor(Math.random()*getCards().length);revealed=false;draw()};
+$("reset").onclick=()=>{if(confirm("پیشرفت این درس پاک شود؟")){Object.keys(marks).filter(k=>k.startsWith(lesson+":")).forEach(k=>delete marks[k]);localStorage.setItem("ss8marks",JSON.stringify(marks));index=0;revealed=false;draw()}};
+draw();
+if("serviceWorker" in navigator && location.protocol!=="file:"){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}
+</script>
+</body></html>
