@@ -1,127 +1,51 @@
-<!doctype html>
-<html lang="fa" dir="rtl">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#6557e8">
-<meta name="description" content="فلش‌کارت‌های تعاملی زبان انگلیسی پایه هشتم">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="icon" href="icons/icon-192.png">
-<link rel="apple-touch-icon" href="icons/icon-192.png">
-<title>SmartStack 8</title>
+<!doctype html><html lang="fa" dir="rtl"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f5f0ff"><link rel="manifest" href="manifest.webmanifest"><title>SmartStack 8 Pro</title>
 <style>
-:root{--bg:#f5f4ff;--card:#fff;--ink:#24213a;--muted:#77738e;--purple:#6557e8;--purple2:#eeeaff;--green:#16865b;--orange:#c77a18;--line:#e8e5f4;--shadow:0 12px 32px #33266b12}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,"Segoe UI",sans-serif;min-height:100vh}
-button,select{font:inherit}button{cursor:pointer;border:0}
-.wrap{max-width:760px;margin:auto;padding:18px 16px 40px}
-.hero{background:linear-gradient(125deg,#5548d8,#9a62ed);color:#fff;border-radius:24px;padding:22px;box-shadow:var(--shadow)}
-.brand{display:flex;align-items:center;justify-content:space-between}.brand h1{font-size:26px;margin:5px 0}.brand p{margin:0;font-size:13px;opacity:.9}.logo{font-size:42px}
-.section-title{font-weight:800;margin:22px 2px 11px}
-.lessons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
-.lesson{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:13px;text-align:right;box-shadow:0 3px 12px #33266b08;min-height:88px;color:var(--ink)}
-.lesson.active{border:2px solid var(--purple);background:var(--purple2);padding:12px}
-.lesson small{color:var(--muted);display:block;margin-bottom:6px}.lesson strong{font-size:15px}.lesson em{display:block;color:var(--muted);font-size:11px;font-style:normal;margin-top:5px;direction:ltr;text-align:right}
-.panel{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:16px;margin-top:16px;box-shadow:var(--shadow)}
-.topline{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
-select{background:#f7f6ff;border:1px solid var(--line);border-radius:12px;padding:10px;color:var(--ink)}
-.muted{color:var(--muted);font-size:13px}.progress{height:8px;border-radius:20px;background:#eeecf6;overflow:hidden;margin:12px 0 16px}.bar{height:100%;width:0;background:linear-gradient(90deg,#6557e8,#b36aef);transition:width .2s}
-.flash{min-height:245px;border:1px solid var(--line);border-radius:19px;background:linear-gradient(160deg,#fff,#faf9ff);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px}
-.pill{background:var(--purple2);color:var(--purple);border-radius:30px;padding:6px 12px;font-size:12px;font-weight:bold}
-.front{font-size:clamp(23px,6vw,32px);font-weight:800;direction:ltr;margin:20px 0 12px;line-height:1.5}
-.answer{border-top:1px solid var(--line);width:100%;padding-top:15px;margin-top:8px;font-size:19px;font-weight:bold;line-height:1.8}
-.note{color:var(--muted);font-size:13px;line-height:1.8}
-.btn{border-radius:13px;padding:13px 12px;font-weight:bold;min-height:48px}
-.primary{background:var(--purple);color:#fff;width:100%;margin-top:12px}
-.green{background:var(--green);color:white}.orange{background:var(--orange);color:white}.soft{background:#f1effb;color:#4e467b;border:1px solid var(--line)}
-.actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:9px}
-.nav{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:9px}
-.stats{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:13px;margin-top:15px;color:var(--muted)}
-.hidden{display:none!important}.footer{text-align:center;color:var(--muted);font-size:11px;margin:18px 0 0;line-height:1.8}
-button:disabled{opacity:.45;cursor:not-allowed}
-@media(min-width:560px){.lessons{grid-template-columns:repeat(4,minmax(0,1fr))}.wrap{padding-top:28px}}
-</style>
-</head>
-<body>
-<main class="wrap">
-<header class="hero">
- <div class="brand"><div><p>فلش‌کارت‌های زبان انگلیسی پایه هشتم</p><h1>SmartStack 8</h1><p>یاد بگیر، مرور کن، پیشرفتت را ببین ✨</p></div><div class="logo">📚</div></div>
-</header>
-<h2 class="section-title">انتخاب درس</h2>
-<section id="lessons" class="lessons" aria-label="درس‌ها"></section>
-<section class="panel">
- <div class="topline"><div><strong id="lessonName">درس اول</strong><div class="muted" id="lessonEnglish"></div></div>
- <select id="filter" aria-label="نوع کارت"><option value="all">همه کارت‌ها</option><option value="vocab">واژگان</option><option value="talk">مکالمه</option></select></div>
- <div class="topline muted" style="margin-top:15px"><span id="position">کارت ۱ از ۵</span><span id="score">بلدم: ۰ · مرور: ۰</span></div>
- <div class="progress"><div id="bar" class="bar"></div></div>
- <article class="flash">
-  <span id="type" class="pill">واژگان</span>
-  <div id="front" class="front">country</div>
-  <div id="answerArea" class="hidden answer"><div id="answer"></div><div id="note" class="note"></div></div>
- </article>
- <button id="reveal" class="btn primary">نمایش پاسخ 👀</button>
- <div class="actions"><button id="again" class="btn orange" disabled>↻ نیاز به تمرین</button><button id="known" class="btn green" disabled>✓ بلدم</button></div>
- <div class="nav"><button id="prev" class="btn soft">قبلی ←</button><button id="mix" class="btn soft">بر زدن 🔀</button><button id="next" class="btn soft">→ بعدی</button></div>
- <div class="stats"><span id="stats">هنوز کارتی مرور نشده</span><button id="reset" class="btn soft" style="padding:7px 10px;min-height:0;font-size:12px">شروع دوباره</button></div>
-</section>
-<p class="footer">پیشرفتت روی همین دستگاه ذخیره می‌شود. مکالمه‌ها تمرین‌های کوتاه و ساخته‌شده برای موضوع هر درس هستند، نه متن کامل کتاب.</p>
-</main>
+:root{--ink:#302047;--muted:#827493;--p:#8655d6;--line:#eee7f8;--shadow:0 12px 35px #60418a12}
+*{box-sizing:border-box}body{margin:0;font-family:Tahoma,"Segoe UI",sans-serif;color:var(--ink);background:linear-gradient(135deg,#fbf9ff,#f2edff 55%,#fff7fb);min-height:100vh}
+button,input{font:inherit}button{cursor:pointer;border:0}.app{max-width:1000px;margin:auto;padding:16px 14px 90px}.top{display:flex;justify-content:space-between;align-items:center;margin:8px 0 20px}.brand{display:flex;align-items:center;gap:10px}.logo{background:linear-gradient(135deg,#9c72e8,#d4bafa);color:white;border-radius:15px;padding:12px;font-weight:bold}.brand h1{font-size:18px;margin:0}.brand small,.muted{color:var(--muted)}.pill,.back,.soft{background:#fff;border:1px solid var(--line);color:var(--p);padding:10px 14px;border-radius:13px}.hero{background:linear-gradient(115deg,#eee5ff,#fff 65%,#fff0f7);border:1px solid white;border-radius:25px;padding:22px;box-shadow:var(--shadow);display:flex;justify-content:space-between;align-items:center;gap:15px}.hero h2{margin:0 0 8px}.hero p{color:var(--muted);line-height:1.8}.mascot{width:95px;height:95px;border-radius:30px;background:linear-gradient(145deg,#b99bea,#8a61d2);display:grid;place-items:center;color:white;font-size:48px;animation:float 3s ease-in-out infinite}@keyframes float{50%{transform:translateY(-6px)}}.primary{background:linear-gradient(110deg,#8b5bd7,#ad83eb);color:white;padding:12px 17px;border-radius:13px;box-shadow:0 8px 18px #8b5bd733}.stats,.grid,.tiles{display:grid;gap:10px;margin:14px 0}.stats{grid-template-columns:repeat(3,1fr)}.grid{grid-template-columns:repeat(3,1fr)}.tiles{grid-template-columns:repeat(4,1fr)}.stat,.card,.lesson,.tile{background:white;border:1px solid var(--line);border-radius:18px;padding:15px;box-shadow:var(--shadow)}.stat b{display:block;color:var(--p);font-size:20px}.stat span,.lesson small{font-size:12px;color:var(--muted)}.head{display:flex;justify-content:space-between;align-items:center;margin:24px 2px 10px}.head h3{margin:0}.lesson,.tile{color:var(--ink);text-align:right;transition:.2s}.lesson:active,.tile:active{transform:scale(.98)}.lesson .emoji{font-size:25px}.lesson b{display:block;margin:8px 0}.tile{text-align:center}.tile span{display:block;font-size:24px;margin-bottom:6px}.view{display:none}.view.active{display:block}.word{text-align:center;font-size:27px;font-weight:bold;margin:25px 0 12px}.meaning{text-align:center;color:var(--muted);min-height:28px}.actions{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:15px 0}.progress{height:8px;background:#eee8f7;border-radius:20px;overflow:hidden}.progress i{display:block;height:100%;background:linear-gradient(90deg,#9a70e1,#e99bc4)}.choices{display:grid;grid-template-columns:1fr 1fr;gap:10px}.choice,.field{background:#fff;border:1px solid var(--line);border-radius:13px;padding:13px;color:var(--ink)}.field{width:100%;margin:8px 0}.answer{background:#f9f6ff;padding:13px;border-radius:14px;margin-top:12px}.bottom{position:fixed;bottom:0;left:0;right:0;background:#ffffffed;backdrop-filter:blur(12px);border-top:1px solid var(--line);display:flex;justify-content:center;gap:8vw;padding:10px 5px calc(10px + env(safe-area-inset-bottom))}.bottom button{background:none;color:var(--muted);font-size:11px}.bottom span{display:block;font-size:20px}.bottom button.active{color:var(--p);font-weight:bold}.toast{position:fixed;top:12px;left:50%;transform:translateX(-50%);background:#38244f;color:white;padding:11px 16px;border-radius:13px;display:none;z-index:9}
+@media(max-width:650px){.grid{grid-template-columns:repeat(2,1fr)}.tiles{grid-template-columns:repeat(2,1fr)}.hero{padding:17px}.mascot{width:72px;height:72px;font-size:37px}.app{padding-bottom:95px}}
+</style></head><body><div id="toast" class="toast"></div><main class="app">
+<header class="top"><div class="brand"><div class="logo">S</div><div><h1>SmartStack 8 Pro</h1><small>Neon Universe · Light Edition</small></div></div><button class="pill" onclick="profile()">👤 پروفایل</button></header>
+<section id="home" class="view active"><div class="hero"><div><h2 id="greeting">سلام! آماده‌ای؟ ✨</h2><p>امروز چند قدم کوچک به انگلیسی قوی‌تر نزدیک شو.</p><button class="primary" onclick="openLesson(0)">شروع یادگیری ←</button></div><div class="mascot" id="mascot">🤖</div></div>
+<div class="stats"><div class="stat"><b id="xp">0</b><span>⭐ امتیاز XP</span></div><div class="stat"><b id="done">0/7</b><span>📚 درس کامل</span></div><div class="stat"><b>🔥 0</b><span>روز پیوسته</span></div></div>
+<div class="head"><h3>نقشه هفت درس</h3><small class="muted">Prospect 2</small></div><div id="lessons" class="grid"></div>
+<div class="head"><h3>آزمایشگاه یادگیری</h3></div><div class="tiles"><button class="tile" onclick="quiz()"><span>🧠</span><b>آزمون سریع</b></button><button class="tile" onclick="randomCard()"><span>🃏</span><b>فلش‌کارت</b></button><button class="tile" onclick="show('tools')"><span>🧩</span><b>بازی واژه</b></button><button class="tile" onclick="show('progress')"><span>🏆</span><b>پیشرفت من</b></button></div></section>
+<section id="study" class="view"><button class="back" onclick="show('home')">→ بازگشت</button><div class="card"><small id="lessonNo" class="muted"></small><h2 id="lessonTitle"></h2><p id="lessonDesc" class="muted"></p><div class="progress"><i id="bar"></i></div><div id="word" class="word"></div><div id="meaning" class="meaning">برای دیدن معنی، نمایش پاسخ را بزن.</div><div class="actions"><button class="soft" onclick="reveal()">نمایش پاسخ</button><button class="soft" onclick="speak()">🔊 تلفظ</button></div><div class="actions"><button class="soft" onclick="mark(false)">نیاز به تمرین</button><button class="primary" onclick="mark(true)">بلدم ✓</button></div><div class="actions"><button class="back" onclick="move(-1)">قبلی</button><button class="back" onclick="move(1)">بعدی ←</button></div></div></section>
+<section id="quiz" class="view"><button class="back" onclick="show('home')">→ بازگشت</button><div class="card"><small id="qcount" class="muted"></small><h2 id="question"></h2><div id="choices" class="choices"></div><div id="feedback" class="answer" hidden></div><div class="actions"><button id="next" class="primary" onclick="nextQ()" hidden>سؤال بعدی</button></div></div></section>
+<section id="tools" class="view"><button class="back" onclick="show('home')">→ بازگشت</button><div class="card"><h2>🧩 بازی واژه</h2><p class="muted">معنی واژه را حدس بزن.</p><div class="word" id="gameword"></div><input id="guess" class="field" placeholder="معنی فارسی"><button class="primary" onclick="checkWord()">بررسی پاسخ</button><div id="gamefeedback" class="answer"></div><hr style="border:0;border-top:1px solid #eee7f8;margin:20px 0"><h3>🎧 تمرین شنیداری</h3><p class="muted">پخش تلفظ با صدای دستگاه</p><button class="soft" onclick="say('What is your name?')">🔊 What is your name?</button></div></section>
+<section id="progress" class="view"><button class="back" onclick="show('home')">→ بازگشت</button><div class="card"><h2>🏆 پیشرفت من</h2><p>امتیاز کل: <b id="pxp">0</b></p><p>کارت‌های مرورشده: <b id="reviewed">0</b></p><p>پاسخ درست آزمون: <b id="correct">0</b></p><div class="progress"><i id="allbar"></i></div><p class="muted">اطلاعات در همین مرورگر و دستگاه ذخیره می‌شود.</p></div></section>
+<section id="profile" class="view"><button class="back" onclick="show('home')">→ بازگشت</button><div class="card"><h2>پروفایل من</h2><label>نام نمایشی یا نام مستعار</label><input id="pname" class="field" maxlength="20" placeholder="مثلاً EnglishStar"><p>انتخاب آواتار</p><div class="actions"><button class="soft" onclick="avatar='🤖'">🤖</button><button class="soft" onclick="avatar='🐼'">🐼</button><button class="soft" onclick="avatar='🦊'">🦊</button><button class="soft" onclick="avatar='🐸'">🐸</button><button class="soft" onclick="avatar='🦄'">🦄</button></div><label>عکس دلخواه (فقط روی این دستگاه)</label><input id="photo" class="field" type="file" accept="image/*"><button class="primary" onclick="saveProfile()">ذخیره پروفایل</button></div></section>
+</main><nav class="bottom"><button class="active" onclick="show('home')"><span>⌂</span>خانه</button><button onclick="openLesson(0)"><span>📚</span>درس‌ها</button><button onclick="show('tools')"><span>🎮</span>بازی‌ها</button><button onclick="show('progress')"><span>🏅</span>پیشرفت</button></nav>
 <script>
-const lessons=[
-{name:"My Nationality",fa:"ملیت من",cards:[
-["vocab","country","کشور","country = کشور"],["vocab","nationality","ملیت","nationality = ملیت"],["vocab","Iranian","ایرانی","Iran = ایران"],
-["talk","Where are you from?","I’m from Iran.","اهل کجا هستی؟ من اهل ایرانم."],["talk","Are you Iranian?","Yes, I am.","آیا ایرانی هستی؟ بله."]
-]},
-{name:"My Week",fa:"هفته‌ی من",cards:[
-["vocab","Monday","دوشنبه","یکی از روزهای هفته"],["vocab","every day","هر روز","عبارت زمانی"],["vocab","weekend","آخر هفته","روزهای پایانی هفته"],
-["talk","What do you do in the mornings?","I go to school.","صبح‌ها چه کار می‌کنی؟ به مدرسه می‌روم."],["talk","When do you study English?","On Monday mornings.","چه زمانی انگلیسی می‌خوانی؟ دوشنبه صبح‌ها."]
-]},
-{name:"My Abilities",fa:"توانایی‌های من",cards:[
-["vocab","draw","نقاشی کشیدن","یک مهارت"],["vocab","ride a bicycle","دوچرخه‌سواری کردن","یک فعالیت"],["vocab","swim","شنا کردن","یک توانایی"],
-["talk","Can you swim?","Yes, I can.","می‌توانی شنا کنی؟ بله."],["talk","Can you draw?","No, I can’t.","می‌توانی نقاشی بکشی؟ نه."]
-]},
-{name:"My Health",fa:"سلامت من",cards:[
-["vocab","headache","سردرد","health = سلامت"],["vocab","toothache","دندان‌درد","ache = درد"],["vocab","stomachache","دل‌درد","یکی از مشکلات سلامتی"],
-["talk","What’s the matter?","I have a headache.","چه شده؟ سردرد دارم."],["talk","What should I do?","You should get some rest.","چه کار کنم؟ بهتر است کمی استراحت کنی."]
-]},
-{name:"My City",fa:"شهر من",cards:[
-["vocab","hospital","بیمارستان","یکی از مکان‌های شهر"],["vocab","library","کتابخانه","مکانی برای کتاب خواندن"],["vocab","museum","موزه","مکانی برای دیدن آثار"],
-["talk","Is there a park near here?","Yes, there is.","آیا این نزدیکی پارک هست؟ بله."],["talk","How can I get to the library?","Go straight and turn left.","چطور به کتابخانه بروم؟ مستقیم برو و به چپ بپیچ."]
-]},
-{name:"My Village",fa:"روستای من",cards:[
-["vocab","village","روستا","مکانی در منطقه‌ی روستایی"],["vocab","farmer","کشاورز","کسی که در مزرعه کار می‌کند"],["vocab","weather","آب‌وهوا","حالت هوا"],
-["talk","What’s the weather like?","It’s sunny.","هوا چطور است؟ آفتابی است."],["talk","Where does your uncle work?","He works on a farm.","عمویت کجا کار می‌کند؟ در مزرعه."]
-]},
-{name:"My Hobbies",fa:"سرگرمی‌های من",cards:[
-["vocab","hobby","سرگرمی","کاری که در اوقات فراغت دوست داریم"],["vocab","play chess","شطرنج بازی کردن","یک سرگرمی"],["vocab","watch TV","تلویزیون تماشا کردن","فعالیت اوقات فراغت"],
-["talk","What’s your hobby?","My hobby is reading.","سرگرمی‌ات چیست؟ سرگرمی من کتاب خواندن است."],["talk","What do you do in your free time?","I play chess.","در اوقات فراغت چه می‌کنی؟ شطرنج بازی می‌کنم."]
-]}
+const L=[
+["My Nationality","ملیت‌ها، کشورها و معرفی خود","🌍",[["Iran","ایران"],["Iranian","ایرانی"],["Where are you from?","اهل کجا هستی؟"],["I am from Iran.","من اهل ایران هستم."]]],
+["My Week","روزهای هفته و برنامه روزانه","📅",[["Saturday","شنبه"],["Sunday","یکشنبه"],["Monday","دوشنبه"],["Tuesday","سه‌شنبه"],["Wednesday","چهارشنبه"],["Thursday","پنجشنبه"],["Friday","جمعه"],["weekend","آخر هفته"]]],
+["My Abilities","توانایی‌ها و فعل can","⚽",[["can","توانستن"],["swim","شنا کردن"],["draw","نقاشی کشیدن"],["I can ride a bike.","من می‌توانم دوچرخه‌سواری کنم."]]],
+["My Health","سلامتی و توصیه‌های ساده","💚",[["headache","سردرد"],["toothache","دندان‌درد"],["healthy","سالم"],["You should rest.","بهتر است استراحت کنی."]]],
+["My City","مکان‌های شهر و مسیرها","🏙️",[["museum","موزه"],["hospital","بیمارستان"],["library","کتابخانه"],["Where is the bank?","بانک کجاست؟"]]],
+["My Village","روستا و طبیعت","🌳",[["river","رودخانه"],["forest","جنگل"],["mountain","کوه"],["beautiful","زیبا"]]],
+["My Hobbies","سرگرمی‌ها و علایق","🎨",[["hobby","سرگرمی"],["photography","عکاسی"],["painting","نقاشی"],["I enjoy reading.","از کتاب خواندن لذت می‌برم."]]]
 ];
-const $=id=>document.getElementById(id);
-let lesson=0,index=0,revealed=false,marks=JSON.parse(localStorage.getItem("ss8marks")||"{}");
-function getCards(){let c=lessons[lesson].cards;let f=$("filter").value;return c.map((x,i)=>({type:x[0],front:x[1],answer:x[2],note:x[3],id:i})).filter(x=>f==="all"||x.type===f)}
-function lessonMarks(){return Object.entries(marks).filter(([k])=>k.startsWith(lesson+":")).map(x=>x[1])}
-function draw(){
- $("lessons").innerHTML=lessons.map((l,i)=>`<button class="lesson ${i===lesson?"active":""}" data-i="${i}"><small>درس ${["اول","دوم","سوم","چهارم","پنجم","ششم","هفتم"][i]}</small><strong>${l.fa}</strong><em>${l.name}</em></button>`).join("");
- document.querySelectorAll(".lesson").forEach(b=>b.onclick=()=>{lesson=+b.dataset.i;index=0;revealed=false;draw()});
- let c=getCards();index=Math.max(0,Math.min(index,c.length-1));let x=c[index],m=lessonMarks();
- $("lessonName").textContent="درس "+["اول","دوم","سوم","چهارم","پنجم","ششم","هفتم"][lesson]+" · "+lessons[lesson].fa;
- $("lessonEnglish").textContent=lessons[lesson].name;$("position").textContent=`کارت ${index+1} از ${c.length}`;
- $("score").textContent=`بلدم: ${m.filter(x=>x==="known").length} · مرور: ${m.filter(x=>x==="again").length}`;
- $("bar").style.width=(Object.keys(marks).filter(k=>k.startsWith(lesson+":")).length/lessons[lesson].cards.length*100)+"%";
- $("type").textContent=x.type==="talk"?"مکالمه 💬":"واژگان 📖";$("front").textContent=x.front;$("answer").textContent=x.answer;$("note").textContent=x.note;
- $("answerArea").classList.toggle("hidden",!revealed);$("reveal").classList.toggle("hidden",revealed);
- $("known").disabled=$("again").disabled=!revealed;$("prev").disabled=index===0;$("next").disabled=index===c.length-1;
- $("stats").textContent=m.length?`${m.length} کارت علامت‌گذاری شده`:"هنوز کارتی مرور نشده";
-}
-function move(n){index=Math.max(0,Math.min(getCards().length-1,index+n));revealed=false;draw()}
-$("filter").onchange=()=>{index=0;revealed=false;draw()};
-$("reveal").onclick=()=>{revealed=true;draw()};
-function mark(value){let x=getCards()[index];marks[lesson+":"+x.id]=value;localStorage.setItem("ss8marks",JSON.stringify(marks));move(1)}
-$("known").onclick=()=>mark("known");$("again").onclick=()=>mark("again");
-$("prev").onclick=()=>move(-1);$("next").onclick=()=>move(1);
-$("mix").onclick=()=>{index=Math.floor(Math.random()*getCards().length);revealed=false;draw()};
-$("reset").onclick=()=>{if(confirm("پیشرفت این درس پاک شود؟")){Object.keys(marks).filter(k=>k.startsWith(lesson+":")).forEach(k=>delete marks[k]);localStorage.setItem("ss8marks",JSON.stringify(marks));index=0;revealed=false;draw()}};
-draw();
-if("serviceWorker" in navigator && location.protocol!=="file:"){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}
-</script>
-</body></html>
+let S=JSON.parse(localStorage.getItem("ss8pro")||'{"name":"","avatar":"🤖","xp":0,"done":[],"reviewed":0,"correct":0}'), li=0,ci=0,avatar=S.avatar,qs=[],qi=0,game;
+const $=x=>document.getElementById(x);function save(){localStorage.setItem("ss8pro",JSON.stringify(S));stats()}function toast(t){$("toast").textContent=t;$("toast").style.display="block";setTimeout(()=>$("toast").style.display="none",1700)}
+function stats(){$("xp").textContent=S.xp;$("done").textContent=S.done.length+"/7";$("pxp").textContent=S.xp;$("reviewed").textContent=S.reviewed;$("correct").textContent=S.correct;$("allbar").style.width=(S.done.length/7*100)+"%";$("mascot").textContent=S.avatar;$("greeting").textContent="سلام "+(S.name||"دوست زبان‌آموز")+"! آماده‌ای؟ ✨"}
+function render(){ $("lessons").innerHTML=L.map((x,i)=>`<button class="lesson" onclick="openLesson(${i})"><span class="emoji">${x[2]}</span><b>${i+1}. ${x[0]}</b><small>${x[1]}</small><div class="progress"><i style="width:${S.done.includes(i)?100:0}%"></i></div></button>`).join("")}
+function show(id){document.querySelectorAll(".view").forEach(v=>v.classList.remove("active"));$(id).classList.add("active");window.scrollTo(0,0);if(id==="progress")stats()}
+function openLesson(i){li=i;ci=0;$("lessonNo").textContent="درس "+(i+1)+" از ۷";$("lessonTitle").textContent=L[i][0];$("lessonDesc").textContent=L[i][1];showCard();show("study")}
+function showCard(){$("word").textContent=L[li][3][ci][0];$("meaning").textContent="برای دیدن معنی، نمایش پاسخ را بزن.";$("bar").style.width=((ci+1)/L[li][3].length*100)+"%"}
+function reveal(){$("meaning").textContent=L[li][3][ci][1]}function say(t){if("speechSynthesis"in window){let u=new SpeechSynthesisUtterance(t);u.lang="en-US";speechSynthesis.speak(u)}else toast("صدای این مرورگر پشتیبانی نمی‌شود.")}function speak(){say(L[li][3][ci][0])}
+function mark(ok){S.reviewed=(S.reviewed||0)+1;S.xp+=ok?5:2;save();toast(ok?"آفرین! ⭐":"برای مرور ذخیره شد");move(1)}
+function move(d){ci+=d;if(ci>=L[li][3].length){S.done=[...new Set([...S.done,li])];save();toast("درس تمام شد! 🏅");render();show("home");return}if(ci<0)ci=L[li][3].length-1;showCard()}
+function words(){return L.flatMap((l,i)=>l[3].map((c,j)=>({en:c[0],fa:c[1],i,j})))}
+function randomCard(){let w=words()[Math.floor(Math.random()*words().length)];openLesson(w.i);ci=w.j;showCard()}
+function quiz(){qs=words().sort(()=>Math.random()-.5).slice(0,8);qi=0;show("quiz");question()}
+function question(){let q=qs[qi],opts=[q.fa,...words().filter(x=>x.fa!==q.fa).sort(()=>Math.random()-.5).slice(0,3).map(x=>x.fa)].sort(()=>Math.random()-.5);$("qcount").textContent=`سؤال ${qi+1} از ${qs.length}`;$("question").textContent=`معنی «${q.en}» کدام است؟`;$("choices").innerHTML=opts.map(o=>`<button class="choice" onclick="answer(this,${JSON.stringify(o)})">${o}</button>`).join("");$("feedback").hidden=true;$("next").hidden=true}
+function answer(b,v){document.querySelectorAll(".choice").forEach(x=>x.disabled=true);let q=qs[qi];if(v===q.fa){b.style.borderColor="#62bd8b";b.style.background="#effbf4";$("feedback").textContent="درست بود! +۱۰ امتیاز ⭐";S.xp+=10;S.correct++}else{$("feedback").textContent="پاسخ درست: "+q.fa;b.style.borderColor="#e88aa8"}save();$("feedback").hidden=false;$("next").hidden=false}
+function nextQ(){if(++qi>=qs.length){toast("آزمون تمام شد!");show("home")}else question()}
+game=words()[Math.floor(Math.random()*words().length)];$("gameword").textContent=game.en;function checkWord(){if($("guess").value.trim()===game.fa){$("gamefeedback").textContent="آفرین! +۵ XP";S.xp+=5;save();game=words()[Math.floor(Math.random()*words().length)];$("gameword").textContent=game.en;$("guess").value=""}else $("gamefeedback").textContent="یک بار دیگر فکر کن و دوباره امتحان کن."}
+function profile(){$("pname").value=S.name||"";show("profile")}function saveProfile(){S.name=$("pname").value.trim().slice(0,20)||"زبان‌آموز";S.avatar=avatar;save();show("home");toast("پروفایل ذخیره شد")}
+render();stats();if(!S.name)setTimeout(profile,300);
+if("serviceWorker"in navigator&&location.protocol.startsWith("http"))addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}));
+</script></body></html>
